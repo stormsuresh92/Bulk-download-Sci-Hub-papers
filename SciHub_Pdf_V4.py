@@ -6,20 +6,6 @@ import datetime
 
 
 header = {
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-    'accept-encoding': 'gzip, deflate, br',
-    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-    'cache-control': 'max-age=0',
-    'cookie': '__ddg1=vIZdy9vxnQG4nUio57zQ; session=0110d1d0ad673d3b1e0398e2e5ead499; __ddgid=ratXmk3e9CJ0O1M9; _ym_uid=1627210666935448269; _ym_d=1627210666; __ddg2=GCD2Zk9ymK4bFSZS; refresh=1634294503.4645; _ym_isad=2',
-    'referer': 'https://sci-hub.se/',
-    'sec-ch-ua': '"Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
     'Connection':'keep-alive'
 }
@@ -32,11 +18,13 @@ dois = file.readlines()
 for doi in dois:
     try:
         base_url = 'https://sci-hub.se/'   
-        r = requests.get(base_url+doi.strip(), headers=header, timeout=2)
+        r = requests.get(base_url+doi.strip(), headers=header)
         soup = BeautifulSoup(r.content, 'html.parser')
         cont = soup.find(id='pdf').get('src').replace('#navpanes=0&view=FitH', '')
-        print(cont)
-        time.sleep(1)
+        if not cont.startswith('https:'):
+            cont = 'https:'+str(cont)
+        else:
+            cont = cont
         output_file = open('URLs_output.tsv', 'a')
         output_file.write(doi.strip() + '\t' + str(cont) + '\n')  
         output_file.close()
@@ -45,6 +33,7 @@ for doi in dois:
         output_file.write(doi.strip() + '\t' + 'DOI Error' + '\n')
         end_time = datetime.datetime.now()   
         output_file.close()
+    time.sleep(10)
 
 
 print('File downloaded')
