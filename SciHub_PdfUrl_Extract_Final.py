@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import datetime
+from tqdm import tqdm
 
 
 
@@ -11,10 +12,10 @@ header = {
 }
 
 print('STARTING EXTRACTION PROCESS...')
-start_time = datetime.datetime.now()
 file = open('Input.txt', 'r')
 dois = file.readlines()
-for doi in dois:
+for doi in tqdm(dois):
+    time.sleep(0.02)
     try:
         payload={
             'sci-hub-plugin-check':'',
@@ -29,19 +30,14 @@ for doi in dois:
             cont = 'https:'+str(cont)
         else:
             cont = cont
-        print('PDF Available', '=>', doi.strip(), '##', datetime.datetime.now())
+        #print('PDF Available', '=>', doi.strip(), '##', datetime.datetime.now())
         output_file = open('PDFURLs.tsv', 'a')
         output_file.write(doi.strip() + '\t' + str(cont) + '\t' + Pdfname + '\n')
         output_file.close()
     except:
-        print('NoPDF', '=>', doi.strip(), '##', datetime.datetime.now())
+        #print('NoPDF', '=>', doi.strip(), '##', datetime.datetime.now())
         output_file = open('No_Pdf.txt', 'a')
-        output_file.write(doi.strip() + '\n')
-        end_time = datetime.datetime.now()   
+        output_file.write(doi.strip() + '\n')   
         output_file.close()
     time.sleep(15)
-    
 
-print('****************')
-print('Time taken to task completed:', end_time-start_time)
-print('****************')
