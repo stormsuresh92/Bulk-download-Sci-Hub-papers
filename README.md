@@ -1,1 +1,1 @@
-SciHub_Automation
+https://sci-hub.se/
