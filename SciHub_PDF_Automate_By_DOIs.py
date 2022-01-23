@@ -47,9 +47,9 @@ for doi in tqdm(dois):
                 if chunk:
                     f.write(chunk)         
     except:
-        NoPDF=open('PDF_NOT_FOUND.txt', 'a')
-        NoPDF.write(doi.strip()+'\n')
-    time.sleep(30)
+        NoPDF=open('PDF_NOT_FOUND.tsv', 'a')
+        NoPDF.write(doi.strip()+'\t'+str(r.content)+'\n')
+    time.sleep(3)
 
 print('\n')
 print('Download completed')
