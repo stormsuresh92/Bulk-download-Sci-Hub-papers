@@ -48,7 +48,7 @@ for pmid in tqdm(pmids):
                     f.write(chunk)         
     except:
         NoPDF=open('PDF_NOT_FOUND.tsv', 'a')
-        NoPDF.write(pmid.strip()+'\t+str(r.content)+'\n')
+        NoPDF.write(pmid.strip()+'\t'+str(r.content)+'\n')
     time.sleep(3)
 
 print('\n')
