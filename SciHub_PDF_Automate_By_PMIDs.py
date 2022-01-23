@@ -48,8 +48,8 @@ for pmid in tqdm(pmids):
                     f.write(chunk)         
     except:
         NoPDF=open('PDF_NOT_FOUND.tsv', 'a')
-        NoPDF.write(pmid.strip()+'\t+r.content+'\n')
-    time.sleep(30)
+        NoPDF.write(pmid.strip()+'\t+str(r.content)+'\n')
+    time.sleep(3)
 
 print('\n')
 print('Download completed')
