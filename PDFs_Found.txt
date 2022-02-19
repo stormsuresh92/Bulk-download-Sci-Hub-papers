@@ -1,0 +1,9 @@
+28017789	https://twin.sci-hub.se/6211/34a5831968ece76aff1fe460164bfbc7/castellanos2016.pdf
+20887192	https://zero.sci-hub.se/1146/65ce85545fad52dccff7be614507e53d/dacunhasantos2011.pdf
+31562956	https://sci-hub.se/downloads/2019-09-29/1a/harrison2019.pdf
+18227510	https://moscow.sci-hub.se/3764/5ebae93ee3d7dff9720a3b793b6d8184/yun2008.pdf
+21764376	https://moscow.sci-hub.se/1804/de8195df14ba025b00923bee7673ec23/yasuda2012.pdf
+25964297	https://moscow.sci-hub.se/3979/707d7b2a854af570165ea3fa73b0181b/niederst2015.pdf
+32113673	https://sci-hub.se/downloads/2020-03-05/60/10.1016@j.pathol.2019.12.003.pdf
+15118125	https://zero.sci-hub.se/1837/4584fbea737f2088c18c49458c0b8b1d/paez2004.pdf
+34373568	https://sci-hub.se/downloads/2021-09-14/e5/rosell2021.pdf
