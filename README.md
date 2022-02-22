@@ -6,18 +6,13 @@ Sci-Hub:
 Sci-Hub is a shadow library website that provides free access to millions of research papers and books, without regard to copyright, by bypassing publishers' paywalls in various ways.
 
 Working urls:
-https://sci-hub.se
-https://sci-hub.st
-https://sci-hub.ru
+https://sci-hub.se, https://sci-hub.st, https://sci-hub.ru
 
-How to install python modules via command (cmd) line
-pip install module name
+How to install python modules via command (cmd) line - pip install module name
 
-Example:
-pip install requests
+Example: pip install requests
 
-Python module usage:
-requests - Sending request to server
+##requests - Sending request to server
 BeautifulSoup - Parsing the html content
 wget - Downloading pdfs from url
 tqdm - Make the progress bar
