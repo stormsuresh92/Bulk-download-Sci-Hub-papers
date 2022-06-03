@@ -47,9 +47,10 @@ for ids in tqdm(pmids):
         wget.download(pdf, out=output_folder)
         output = open('Fulltext.tsv', 'a')
         output.write(str(ids.strip()) + '\t' + str(pdf.strip()) + '\n')
-        sleep(1)
     except:
         output = open('NoFulltext.tsv', 'a')
         output.write(str(ids.strip()) + '\t' + str(pdf.strip()) + '\n')
+    
+    sleep(1)
 
 input()
